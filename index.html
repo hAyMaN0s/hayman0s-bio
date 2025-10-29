@@ -15,27 +15,99 @@
             margin: 0;
             padding: 20px;
             min-height: 100vh;
-            font-family: cursive;
+            font-family: 'Courier New', monospace;
+            overflow-x: hidden;
         }
 
+        /* Анимация неонового свечения */
+        @keyframes neonGlow {
+            0%, 100% { 
+                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ff00de, 0 0 40px #ff00de;
+                transform: scale(1);
+            }
+            50% { 
+                text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #ff00de, 0 0 20px #ff00de;
+                transform: scale(1.05);
+            }
+        }
+
+        /* Анимация плавающих частиц */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(5deg); }
+        }
+
+        /* Анимация пульсации */
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        /* Анимация сияния кнопок */
+        @keyframes buttonShine {
+            0% { background-position: -100% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        /* Анимация появления элементов */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Стили для кнопок с анимациями */
         .knop {
-            background: rgba(255, 255, 255, 0.9);
+            background: linear-gradient(45deg, #ff00de, #00ffea, #ff00de);
+            background-size: 200% 100%;
             border: none;
-            border-radius: 10px;
-            padding: 10px;
+            border-radius: 15px;
+            padding: 12px;
             display: block;
-            margin: 10px auto;
+            margin: 15px auto;
             text-align: center;
             text-decoration: none;
             width: 90%;
-            max-width: 300px;
+            max-width: 320px;
+            animation: fadeInUp 0.8s ease-out, buttonShine 3s infinite linear;
+            box-shadow: 0 0 20px rgba(255, 0, 222, 0.5);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .knop:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(255, 0, 222, 0.8);
+        }
+
+        .knop::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .knop:hover::before {
+            left: 100%;
         }
 
         .knop img {
             width: 100%;
             height: auto;
             max-width: 300px;
-            border-radius: 5px;
+            border-radius: 10px;
+            animation: float 3s ease-in-out infinite;
+            border: 2px solid rgba(255, 255, 255, 0.3);
         }
 
         .knopk {
@@ -45,64 +117,123 @@
             display: block;
             margin: 0 auto;
             text-align: center;
+            animation: fadeInUp 1.2s ease-out;
         }
 
         .knopk img {
             width: 100%;
             max-width: 200px;
             height: auto;
-            border-radius: 10px;
+            border-radius: 15px;
+            animation: pulse 2s ease-in-out infinite, float 4s ease-in-out infinite;
+            border: 3px solid transparent;
+            background: linear-gradient(45deg, #ff00de, #00ffea) border-box;
+            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
         }
 
         .knopka {
             color: black;
             font-weight: bold;
-            font-family: cursive;
+            font-family: 'Courier New', monospace;
             margin: 0;
             text-decoration: none;
+            font-size: 1.1em;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
         }
 
         a {
             text-decoration: none;
         }
 
+        /* Стили для заголовков с анимациями */
         .examplehorizontal {
             text-align: center;
-            margin: 20px auto;
+            margin: 25px auto;
             max-width: 600px;
+            animation: fadeInUp 0.6s ease-out;
         }
 
         .examplehorizontal2 {
             text-align: center;
-            margin: 20px auto;
+            margin: 25px auto;
             max-width: 600px;
+            animation: fadeInUp 1.4s ease-out;
         }
 
         h1, h2, h3, h4 {
-            background-color: rgba(255, 164, 232, 0.8);
+            background: linear-gradient(135deg, rgba(255, 0, 222, 0.9), rgba(0, 255, 234, 0.9));
             display: inline-block;
-            padding: 10px 20px;
-            border-radius: 10px;
-            margin: 10px auto;
+            padding: 15px 25px;
+            border-radius: 15px;
+            margin: 12px auto;
             text-align: center;
+            animation: neonGlow 2s ease-in-out infinite, fadeInUp 0.8s ease-out;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
         }
 
-        h1 { width: 275px; height: auto; min-height: 47px; }
-        h2 { width: 180px; height: auto; min-height: 33px; }
-        h3 { width: 70px; height: auto; min-height: 28px; }
-        h4 { width: 155px; height: auto; min-height: 23px; }
+        h1 { 
+            width: 275px; 
+            height: auto; 
+            min-height: 47px;
+            animation-delay: 0.1s;
+        }
+        h2 { 
+            width: 180px; 
+            height: auto; 
+            min-height: 33px;
+            animation-delay: 0.2s;
+        }
+        h3 { 
+            width: 70px; 
+            height: auto; 
+            min-height: 28px;
+            animation-delay: 0.3s;
+        }
+        h4 { 
+            width: 155px; 
+            height: auto; 
+            min-height: 23px;
+            animation-delay: 0.4s;
+        }
+
+        /* Анимированный курсор */
+        body {
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="none" stroke="%23ff00de" stroke-width="2"/><circle cx="10" cy="10" r="3" fill="%2300ffea"/></svg>'), auto;
+        }
+
+        /* Плавающие частицы на фоне */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #00ffea;
+            border-radius: 50%;
+            animation: float 6s infinite ease-in-out;
+        }
 
         /* Адаптация для телефонов */
         @media (max-width: 768px) {
             body {
-                padding: 10px;
-                background-position: center center;
+                padding: 15px;
             }
             
             .knop {
                 width: 95%;
-                margin: 8px auto;
-                padding: 8px;
+                margin: 12px auto;
+                padding: 10px;
             }
             
             .knop img {
@@ -119,29 +250,29 @@
                 display: block;
                 margin-left: auto;
                 margin-right: auto;
-                padding: 8px 15px;
-                font-size: 1.2em;
+                padding: 12px 20px;
+                font-size: 1.1em;
             }
             
-            h1 { font-size: 1.4em; }
-            h2 { font-size: 1.3em; }
-            h3 { font-size: 1.2em; }
-            h4 { font-size: 1.1em; }
+            h1 { font-size: 1.3em; }
+            h2 { font-size: 1.2em; }
+            h3 { font-size: 1.1em; }
+            h4 { font-size: 1em; }
         }
 
         /* Адаптация для очень маленьких экранов */
         @media (max-width: 480px) {
             body {
-                padding: 5px;
+                padding: 10px;
             }
             
             h1, h2, h3, h4 {
                 width: 95% !important;
-                padding: 6px 10px;
-                font-size: 1.1em;
+                padding: 10px 15px;
+                font-size: 1em;
             }
             
-            h1 { font-size: 1.3em; }
+            h1 { font-size: 1.2em; }
             
             .knopk img {
                 max-width: 120px;
@@ -151,6 +282,9 @@
 </head>
 
 <body>
+    <!-- Плавающие частицы -->
+    <div class="particles" id="particles"></div>
+
     <button class="knop">
         <img src="https://github.com/hAyMaN0s/hayman0s-bio/blob/main/e37b52544f05418d007e385393e89221.jpg?raw=true" alt="Profile"><br>
     </button>
@@ -167,7 +301,7 @@
     <br>
     
     <button class="knop">
-        <a href="https://steamcommunity.com/profiles/76561199270379297/">
+        <a href="https://steamcommunity.com/profiles/76561199199270379297/">
             <p class="knopka"><strong>My steam</strong></p>
         </a>
     </button>
@@ -175,7 +309,7 @@
     <br>
     
     <button class="knop">
-        <a href="https://pornhub.com/">
+        <a href="https://example.com/">
             <p class="knopka"><strong>My favorite website</strong></p>
         </a>
     </button>
@@ -194,5 +328,51 @@
             <img src="https://github.com/hAyMaN0s/hayman0s-bio/blob/main/s49xr8k79vf0w97c8n49b4fqnjh5.gif?raw=true" alt="GIF">
         </button>
     </div>
+
+    <script>
+        // Создание плавающих частиц
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                // Случайная позиция
+                particle.style.left = Math.random() * 100 + 'vw';
+                particle.style.top = Math.random() * 100 + 'vh';
+                
+                // Случайная анимация
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (3 + Math.random() * 4) + 's';
+                
+                // Случайный размер
+                const size = 2 + Math.random() * 4;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                
+                // Случайный цвет
+                const colors = ['#ff00de', '#00ffea', '#ffffff', '#ff6b6b'];
+                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        // Запуск при загрузке страницы
+        document.addEventListener('DOMContentLoaded', createParticles);
+        
+        // Добавляем эффект наведения на все кнопки
+        document.querySelectorAll('.knop').forEach(button => {
+            button.addEventListener('mouseenter', function() {
+                this.style.animation = 'buttonShine 1.5s infinite linear, pulse 0.5s ease-in-out';
+            });
+            
+            button.addEventListener('mouseleave', function() {
+                this.style.animation = 'buttonShine 3s infinite linear, fadeInUp 0.8s ease-out';
+            });
+        });
+    </script>
 </body>
 </html>
