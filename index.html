@@ -31,12 +31,6 @@
             }
         }
 
-        /* Анимация плавающих частиц */
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-10px) rotate(5deg); }
-        }
-
         /* Анимация пульсации */
         @keyframes pulse {
             0%, 100% { transform: scale(1); opacity: 1; }
@@ -204,26 +198,6 @@
             cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="none" stroke="%23ff00de" stroke-width="2"/><circle cx="10" cy="10" r="3" fill="%2300ffea"/></svg>'), auto;
         }
 
-        /* Плавающие частицы на фоне */
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: #00ffea;
-            border-radius: 50%;
-            animation: float 6s infinite ease-in-out;
-        }
-
         /* Адаптация для телефонов */
         @media (max-width: 768px) {
             body {
@@ -330,35 +304,7 @@
     </div>
 
     <script>
-        // Создание плавающих частиц
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            const particleCount = 30;
-            
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                
-                // Случайная позиция
-                particle.style.left = Math.random() * 100 + 'vw';
-                particle.style.top = Math.random() * 100 + 'vh';
-                
-                // Случайная анимация
-                particle.style.animationDelay = Math.random() * 6 + 's';
-                particle.style.animationDuration = (3 + Math.random() * 4) + 's';
-                
-                // Случайный размер
-                const size = 2 + Math.random() * 4;
-                particle.style.width = size + 'px';
-                particle.style.height = size + 'px';
-                
-                // Случайный цвет
-                const colors = ['#ff00de', '#00ffea', '#ffffff', '#ff6b6b'];
-                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
-                
-                particlesContainer.appendChild(particle);
-            }
-        }
+ 
         
         // Запуск при загрузке страницы
         document.addEventListener('DOMContentLoaded', createParticles);
