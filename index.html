@@ -1,63 +1,198 @@
 <!DOCTYPE html>
-<!-- saved from url=(0113)file:///C:/Users/pleha/OneDrive/%D0%A0%D0%B0%D0%B1%D0%BE%D1%87%D0%B8%D0%B9%20%D1%81%D1%82%D0%BE%D0%BB/my-bio.html -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-    <link rel="stylesheet" href="style.css">
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>hayman0s-bio</title>
-    <viewport>
-    <meta name="viewport" content="width=device-width, initial-scale=auto">
-    </viewport>
+    <style>
+        /* Базовые стили */
+        body {
+            background-image: url('https://mir-s3-cdn-cf.behance.net/project_modules/fs/218c2949273079.58af9c107cb09.gif');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            font-family: cursive;
+        }
+
+        .knop {
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 10px;
+            padding: 10px;
+            display: block;
+            margin: 10px auto;
+            text-align: center;
+            text-decoration: none;
+            width: 90%;
+            max-width: 300px;
+        }
+
+        .knop img {
+            width: 100%;
+            height: auto;
+            max-width: 300px;
+            border-radius: 5px;
+        }
+
+        .knopk {
+            background: none;
+            border: none;
+            padding: 0;
+            display: block;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .knopk img {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .knopka {
+            color: black;
+            font-weight: bold;
+            font-family: cursive;
+            margin: 0;
+            text-decoration: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .examplehorizontal {
+            text-align: center;
+            margin: 20px auto;
+            max-width: 600px;
+        }
+
+        .examplehorizontal2 {
+            text-align: center;
+            margin: 20px auto;
+            max-width: 600px;
+        }
+
+        h1, h2, h3, h4 {
+            background-color: rgba(255, 164, 232, 0.8);
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 10px;
+            margin: 10px auto;
+            text-align: center;
+        }
+
+        h1 { width: 275px; height: auto; min-height: 47px; }
+        h2 { width: 180px; height: auto; min-height: 33px; }
+        h3 { width: 70px; height: auto; min-height: 28px; }
+        h4 { width: 155px; height: auto; min-height: 23px; }
+
+        /* Адаптация для телефонов */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+                background-position: center center;
+            }
+            
+            .knop {
+                width: 95%;
+                margin: 8px auto;
+                padding: 8px;
+            }
+            
+            .knop img {
+                max-width: 100%;
+            }
+            
+            .knopk img {
+                max-width: 150px;
+            }
+            
+            h1, h2, h3, h4 {
+                width: 90% !important;
+                max-width: 300px;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                padding: 8px 15px;
+                font-size: 1.2em;
+            }
+            
+            h1 { font-size: 1.4em; }
+            h2 { font-size: 1.3em; }
+            h3 { font-size: 1.2em; }
+            h4 { font-size: 1.1em; }
+        }
+
+        /* Адаптация для очень маленьких экранов */
+        @media (max-width: 480px) {
+            body {
+                padding: 5px;
+            }
+            
+            h1, h2, h3, h4 {
+                width: 95% !important;
+                padding: 6px 10px;
+                font-size: 1.1em;
+            }
+            
+            h1 { font-size: 1.3em; }
+            
+            .knopk img {
+                max-width: 120px;
+            }
+        }
+    </style>
 </head>
 
-<body style="background-image: url(&#39;https://mir-s3-cdn-cf.behance.net/project_modules/fs/218c2949273079.58af9c107cb09.gif&#39;);
-    background-size: cover;
-    background-position: central;
-    height: 50px;
-    color: white;">
-    <button class="knop"><img src="https://github.com/hAyMaN0s/hayman0s-bio/blob/main/e37b52544f05418d007e385393e89221.jpg?raw=true" width="300" height="200"><br>
-    </button><br>
+<body>
+    <button class="knop">
+        <img src="https://github.com/hAyMaN0s/hayman0s-bio/blob/main/e37b52544f05418d007e385393e89221.jpg?raw=true" alt="Profile"><br>
+    </button>
+    
     <br>
+    
     <div class="examplehorizontal">
-        <h1 background-color: rgb(72, 255, 170);
-    width: 275px;
-    height: 47px;
-    font-weight: bold;
-    font-family: cursive;
-    text-align: center;><em>Briefly about me</em></h1>
-        <h4 background-color: rgb(255, 164, 232);
-    width: 155px;
-    height: 23px;
-    font-weight: bold;
-    font-family: cursive;
-    text-align: center;>WELL WELL WELL</h4>
-        <h2  background-color: rgb(255, 164, 232);
-    width: 180px;
-    height: 33px;
-    text-align: center;
-    font-weight: bold;
-    font-family: cursive;>Nick:hayman0s</h2>
-        <h3 background-color: rgb(255, 164, 232);
-    width: 70px;
-    height: 28px;
-    text-align: center;
-    font-weight: bold;
-    font-family: cursive >Age:17</h3>
+        <h1><em>Briefly about me</em></h1>
+        <h4>WELL WELL WELL</h4>
+        <h2>Nick: hayman0s</h2>
+        <h3>Age: 17</h3>
     </div>
 
-    <br><button class="knop"><a href="https://steamcommunity.com/profiles/76561199270379297/"><p  color: black;
-    font-weight: bold;
-    font-family: cursive; class="knopka"><strong>My steam</strong></p></a></button><br>
-
-
-    <br><button class="knop"><a href="https://pornhub.com/"><p  color: black;
-    font-weight: bold;
-    font-family: cursive; class="knopka"><strong>My favorite website</strong></p></a></button><br>
-
-
-    <br><button class="knop"><a href="https://t.me/human985"><p  color: black;
-    font-weight: bold;
-    font-family: cursive; class="knopka"><strong>My telegram</strong></p></a></button><br>
-    <div class="examplehorizontal2"><br><button class="knopk"><img src="https://github.com/hAyMaN0s/hayman0s-bio/blob/main/s49xr8k79vf0w97c8n49b4fqnjh5.gif?raw=true" width="200" height="200">
-    </button></div>
-
-
-</body></html>
+    <br>
+    
+    <button class="knop">
+        <a href="https://steamcommunity.com/profiles/76561199199270379297/">
+            <p class="knopka"><strong>My steam</strong></p>
+        </a>
+    </button>
+    
+    <br>
+    
+    <button class="knop">
+        <a href="https://example.com/">
+            <p class="knopka"><strong>My favorite website</strong></p>
+        </a>
+    </button>
+    
+    <br>
+    
+    <button class="knop">
+        <a href="https://t.me/human985">
+            <p class="knopka"><strong>My telegram</strong></p>
+        </a>
+    </button>
+    
+    <div class="examplehorizontal2">
+        <br>
+        <button class="knopk">
+            <img src="https://github.com/hAyMaN0s/hayman0s-bio/blob/main/s49xr8k79vf0w97c8n49b4fqnjh5.gif?raw=true" alt="GIF">
+        </button>
+    </div>
+</body>
+</html>
