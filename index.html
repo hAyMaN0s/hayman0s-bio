@@ -5,7 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>hayman0s-bio</title>
     <style>
-       /* Базовые стили */ body { background-image: url('https://i.pinimg.com/originals/fc/3f/9d/fc3f9df283c19a016d0c7084519d765b.gif'); background-size: cover; background-position: center; background-attachment: fixed; color: white; margin: 0; padding: 20px; min-height: 100vh; font-family: 'Courier New', monospace; overflow-x: hidden; }
+       /* Базовые стили */ 
+       body { 
+           background-image: url('https://i.pinimg.com/originals/fc/3f/9d/fc3f9df283c19a016d0c7084519d765b.gif'); 
+           background-size: cover; 
+           background-position: center; 
+           background-attachment: fixed; 
+           color: white; 
+           margin: 0; 
+           padding: 20px; 
+           min-height: 100vh; 
+           font-family: 'Courier New', monospace; 
+           overflow-x: hidden; 
+       }
+
+    /* Анимация появления */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
     /* Анимация неонового свечения */
     @keyframes neonGlow {
         0%, 100% { 
@@ -28,6 +53,12 @@
     @keyframes buttonShine {
         0% { background-position: -100% 0; }
         100% { background-position: 200% 0; }
+    }
+
+    /* Анимация float для изображений */
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
     }
 
     /* Стили для кнопок с анимациями */
@@ -102,6 +133,27 @@
         mask-composite: exclude;
     }
 
+    /* Стиль для последней картинки */
+    .last-image-container {
+        text-align: center;
+        margin: 25px auto;
+        animation: fadeInUp 1.4s ease-out;
+    }
+
+    .last-image {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        border-radius: 15px;
+        animation: pulse 2s ease-in-out infinite;
+        border: 3px solid transparent;
+        background: linear-gradient(45deg, #ff00de, #00ffea) border-box;
+        -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        box-shadow: 0 0 20px rgba(255, 0, 222, 0.5);
+    }
+
     .knopka {
         color: black;
         font-weight: bold;
@@ -168,34 +220,6 @@
         animation-delay: 0.4s;
     }
 
-/* Анимация неонового свечения */
-@keyframes neonGlow {
-    0%, 100% { 
-        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ff00de, 0 0 40px #ff00de;
-        transform: scale(1);
-    }
-    50% { 
-        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #ff00de, 0 0 20px #ff00de;
-        transform: scale(1.05);
-    }
-}
-
-/* Анимация пульсации */
-@keyframes pulse {
-    0%, 100% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.1); opacity: 0.8; }
-}
-
-/* Анимация сияния кнопок */
-@keyframes buttonShine {
-    0% { background-position: -100% 0; }
-    100% { background-position: 200% 0; }
-}
-
-/* Анимация float для изображений */
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
         
         /* Адаптация для телефонов */
         @media (max-width: 768px) {
