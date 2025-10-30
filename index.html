@@ -6,181 +6,48 @@
     <title>hayman0s-bio</title>
     <style>
         /* Базовые стили */
-        body {
-            background-image: url('https://mir-s3-cdn-cf.behance.net/project_modules/fs/218c2949273079.58af9c107cb09.gif');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: white;
-            margin: 0;
-            padding: 20px;
-            min-height: 100vh;
-            font-family: 'Courier New', monospace;
-            overflow-x: hidden;
-        }
+body {
+    background-image: url('https://mir-s3-cdn-cf.behance.net/project_modules/fs/218c2949273079.58af9c107cb09c.gif');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    font-family: 'Courier New', monospace;
+    overflow-x: hidden;
+}
 
-        /* Анимация неонового свечения */
-        @keyframes neonGlow {
-            0%, 100% { 
-                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ff00de, 0 0 40px #ff00de;
-                transform: scale(1);
-            }
-            50% { 
-                text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #ff00de, 0 0 20px #ff00de;
-                transform: scale(1.05);
-            }
-        }
+/* Анимация неонового свечения */
+@keyframes neonGlow {
+    0%, 100% { 
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ff00de, 0 0 40px #ff00de;
+        transform: scale(1);
+    }
+    50% { 
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #ff00de, 0 0 20px #ff00de;
+        transform: scale(1.05);
+    }
+}
 
-        /* Анимация пульсации */
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.1); opacity: 0.8; }
-        }
+/* Анимация пульсации */
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+}
 
-        /* Анимация сияния кнопок */
-        @keyframes buttonShine {
-            0% { background-position: -100% 0; }
-            100% { background-position: 200% 0; }
-        }
+/* Анимация сияния кнопок */
+@keyframes buttonShine {
+    0% { background-position: -100% 0; }
+    100% { background-position: 200% 0; }
+}
 
-        /* Стили для кнопок с анимациями */
-        .knop {
-            background: linear-gradient(45deg, #ff00de, #00ffea, #ff00de);
-            background-size: 200% 100%;
-            border: none;
-            border-radius: 15px;
-            padding: 12px;
-            display: block;
-            margin: 15px auto;
-            text-align: center;
-            text-decoration: none;
-            width: 90%;
-            max-width: 320px;
-            animation: fadeInUp 0.8s ease-out, buttonShine 3s infinite linear;
-            box-shadow: 0 0 20px rgba(255, 0, 222, 0.5);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .knop:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 30px rgba(255, 0, 222, 0.8);
-        }
-
-        .knop::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.5s;
-        }
-
-        .knop:hover::before {
-            left: 100%;
-        }
-
-        .knop img {
-            width: 100%;
-            height: auto;
-            max-width: 300px;
-            border-radius: 10px;
-            animation: float 3s ease-in-out infinite;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .knopk {
-            background: none;
-            border: none;
-            padding: 0;
-            display: block;
-            margin: 0 auto;
-            text-align: center;
-            animation: fadeInUp 1.2s ease-out;
-        }
-
-        .knopk img {
-            width: 100%;
-            max-width: 200px;
-            height: auto;
-            border-radius: 15px;
-            animation: pulse 2s ease-in-out infinite, float 4s ease-in-out infinite;
-            border: 3px solid transparent;
-            background: linear-gradient(45deg, #ff00de, #00ffea) border-box;
-            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-        }
-
-        .knopka {
-            color: black;
-            font-weight: bold;
-            font-family: 'Courier New', monospace;
-            margin: 0;
-            text-decoration: none;
-            font-size: 1.1em;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-        }
-
-        a {
-            text-decoration: none;
-        }
-
-        /* Стили для заголовков с анимациями */
-        .examplehorizontal {
-            text-align: center;
-            margin: 25px auto;
-            max-width: 600px;
-            animation: fadeInUp 0.6s ease-out;
-        }
-
-        .examplehorizontal2 {
-            text-align: center;
-            margin: 25px auto;
-            max-width: 600px;
-            animation: fadeInUp 1.4s ease-out;
-        }
-
-        h1, h2, h3, h4 {
-            background: linear-gradient(135deg, rgba(255, 0, 222, 0.9), rgba(0, 255, 234, 0.9));
-            display: inline-block;
-            padding: 15px 25px;
-            border-radius: 15px;
-            margin: 12px auto;
-            text-align: center;
-            animation: neonGlow 2s ease-in-out infinite, fadeInUp 0.8s ease-out;
-            border: 2px solid rgba(255, 255, 255, 0.5);
-            backdrop-filter: blur(10px);
-        }
-
-        h1 { 
-            width: 275px; 
-            height: auto; 
-            min-height: 47px;
-            animation-delay: 0.1s;
-        }
-        h2 { 
-            width: 180px; 
-            height: auto; 
-            min-height: 33px;
-            animation-delay: 0.2s;
-        }
-        h3 { 
-            width: 70px; 
-            height: auto; 
-            min-height: 28px;
-            animation-delay: 0.3s;
-        }
-        h4 { 
-            width: 155px; 
-            height: auto; 
-            min-height: 23px;
-            animation-delay: 0.4s;
-        }
-
+/* Анимация float для изображений */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+        
         /* Адаптация для телефонов */
         @media (max-width: 768px) {
             body {
