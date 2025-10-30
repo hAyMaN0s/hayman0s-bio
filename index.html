@@ -46,7 +46,7 @@
         /* Стили для кнопок с анимациями */
         .knop {
             background: linear-gradient(45deg, #ff00de, #00ffea, #ff00de);
-            background-size: 200% 100%;
+            background-size: 100% 50%;
             border: none;
             border-radius: 15px;
             padding: 12px;
@@ -285,7 +285,7 @@
     <div class="examplehorizontal2">
         <br>
         <button class="knopk">
-            <img src="https://github.com/hAyMaN0s/hayman0s-bio/blob/c1a2f23fb75cfe5424c6a401ee330f49aa2e6972/s49xr8k79vf0w97c8n49b4fqnjh5%20(1).gif" alt="GIF" wight="200" height="200">
+            <img src="https://github.com/hAyMaN0s/hayman0s-bio/blob/main/s49xr8k79vf0w97c8n49b4fqnjh5%20(1).gif?raw=true" alt="GIF" >
         </button>
     </div>
 
@@ -294,17 +294,7 @@
         
         // Запуск при загрузке страницы
         document.addEventListener('DOMContentLoaded', createParticles);
-        
-        // Добавляем эффект наведения на все кнопки
-        document.querySelectorAll('.knop').forEach(button => {
-            button.addEventListener('mouseenter', function() {
-                this.style.animation = 'buttonShine 1.5s infinite linear, pulse 0.5s ease-in-out';
-            });
-            
-            button.addEventListener('mouseleave', function() {
-                this.style.animation = 'buttonShine 3s infinite linear, fadeInUp 0.8s ease-out';
-            });
-        });
+    
     </script>
 </body>
 </html>
