@@ -412,6 +412,58 @@
             }
         }
     </script>
+
+
+
+
+
+    
+     <br>
+     <button class="knop" onclick="toggleQR()">
+      <p class="knopka"><strong>Donat</strong></p>
+    </button>
+    
+    <div id="qr-section">
+        <div class="qr-modal">
+            <h2 style="margin-top: 0;"><strong>Просто введи свой номер телефона в Т-Банке и потом уже можно вести номер карты с каторой хочешь меня поддержать</strong></h2>
+            <button class="knop">
+        <a href="https://tbank.ru/cf/6q4Y8gRCTFp">
+            <p class="knopka"><strong>Donat (Android, IOS)</strong></p>
+        </a>
+    </button>
+               <p class="knopka"> <strong>Простая инструкция</strong></p>
+            </p>
+            <button class="knop" onclick="toggleQR()" style="background: #e74c3c;">
+               <p class="knopka"><strong>Закрыть</strong></p>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let qrVisible = false;
+        
+        function toggleQR() {
+            const qrSection = document.getElementById('qr-section');
+            qrVisible = !qrVisible;
+            
+            if (qrVisible) {
+                qrSection.style.display = 'flex';
+                // Блокируем скролл
+                document.body.style.overflow = 'hidden';
+            } else {
+                qrSection.style.display = 'none';
+                // Восстанавливаем скролл
+                document.body.style.overflow = 'auto';
+            }
+        }
+    </script>
+
+
+
+
+
+    
+    
     
     <div>
         <br>
