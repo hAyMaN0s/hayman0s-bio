@@ -20,6 +20,66 @@
            font-family: 'Courier New', monospace; 
            overflow-x: hidden; 
        }
+          /* Анимации */
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    
+    @keyframes slideUp {
+        from { 
+            opacity: 0;
+            transform: translateY(50px) scale(0.9);
+        }
+        to { 
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+    
+    #qr-section {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.95);
+        z-index: 1000;
+        display: none; /* Скрыто по умолчанию */
+        justify-content: center;
+        align-items: center;
+        animation: fadeIn 0.3s ease-out;
+    }
+    
+    .qr-modal {
+        background: white;
+        padding: 40px;
+        border-radius: 25px;
+        animation: slideUp 0.4s ease-out;
+        position: relative;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+    
+    /* Кнопка как в мессенджере */
+    .modern-btn {
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: white;
+        border: none;
+        padding: 16px 40px;
+        font-size: 18px;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 20px auto;
+    }
+    
+    .modern-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+    }
 
    
     /* Анимация неонового свечения */
@@ -322,6 +382,45 @@
     </button>
 
     <br>
+     <button class="modern-btn" onclick="toggleQR()">
+        <span>📱</span>
+        Показать QR-код
+    </button>
+    
+    <!-- Модальное окно с QR -->
+    <div id="qr-section">
+        <div class="qr-modal">
+            <h2 style="margin-top: 0;">Сканируйте для связи</h2>
+            <div style="background: #f8f9fa; padding: 20px; border-radius: 15px; display: inline-block;">
+                <img src="your-qr.png" alt="QR" style="width: 250px; height: 250px;">
+            </div>
+            <p style="color: #666; margin-top: 20px;">
+                Наведите камеру телефона на код
+            </p>
+            <button class="modern-btn" onclick="toggleQR()" style="background: #e74c3c;">
+                Закрыть
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let qrVisible = false;
+        
+        function toggleQR() {
+            const qrSection = document.getElementById('qr-section');
+            qrVisible = !qrVisible;
+            
+            if (qrVisible) {
+                qrSection.style.display = 'flex';
+                // Блокируем скролл
+                document.body.style.overflow = 'hidden';
+            } else {
+                qrSection.style.display = 'none';
+                // Восстанавливаем скролл
+                document.body.style.overflow = 'auto';
+            }
+        }
+    </script>
     
     <div>
         <br>
